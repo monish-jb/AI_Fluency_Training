@@ -1,7 +1,5 @@
-"""System 1: a plain LLM chatbot. No tools, no access to the college data."""
 from config import client, MODEL, QUESTIONS, banner
-
-
+ 
 def chatbot(question):
     response = client.chat.completions.create(
         model=MODEL,
@@ -12,8 +10,7 @@ def chatbot(question):
         temperature=0,
     )
     return response.choices[0].message.content.strip()
-
-
+ 
 if __name__ == "__main__":
     banner("SYSTEM 1: CHATBOT")
     for question in QUESTIONS:
